@@ -7,7 +7,7 @@
     "rules": {
         "svg-focusable": "off",
         "void-style": "off",
-        "script_type": "off",
+        "script-type": "off",
         "attr-quotes": "off",
         "prefer-tbody": "off",
         "no-raw-characters": [
@@ -25,6 +25,9 @@
         "no-deprecated-attr": "warn",
         "no-inline-style": "warn",
         "wcag/h30": "warn",
+        "wcag/h37": "warn",
+        "no-redundant-for": "warn",
+        "input-missing-label": "warn",
         "text-content": "error",
         "long-title": "error",
         "element-permitted-content": "warn"
