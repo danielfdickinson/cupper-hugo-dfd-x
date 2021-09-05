@@ -28,6 +28,7 @@
         "wcag/h37": "warn",
         "no-redundant-for": "warn",
         "input-missing-label": "warn",
+        "heading-level": "warn",
         "text-content": "error",
         "long-title": "error",
         "element-permitted-content": "warn"
