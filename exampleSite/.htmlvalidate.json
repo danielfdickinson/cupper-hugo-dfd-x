@@ -1,0 +1,22 @@
+{
+    "root": true,
+    "extends": [
+        "html-validate:recommended",
+        "html-validate:document"
+    ],
+    "rules": {
+        "svg-focusable": "warn",
+        "void-style": "warn",
+        "no-raw-characters": [
+                "error",
+                {
+                    "relaxed": true
+                }
+        ],
+        "require-sri": "warn",
+        "element-required-attributes": "error",
+        "text-content": "error",
+        "long-title": "error",
+        "element-permitted-content": "error"
+    }
+}
