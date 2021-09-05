@@ -1,8 +1,13 @@
-# Cupper
+# Cupper-hugo-dfd-x
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bc8c4e51-37ee-419d-ad4f-b378010ee546/deploy-status)](https://app.netlify.com/sites/cupper-hugo-theme/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/75ddecc5-089c-4ec5-a587-1c2d6a194c93/deploy-status)](https://app.netlify.com/sites/cupper-hugo-dfd-x/deploys)
 
-An accessibility-friendly Hugo theme, ported from the [original Cupper](https://github.com/ThePacielloGroup/cupper) project.
+A Hugo theme, ported from the [zwbetz-gh/cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme), which is an accessibility-friendly
+Hugo theme, ported from the [original Cupper](https://github.com/ThePacielloGroup/cupper) project.
+
+We try to remain accessibility-friendly while still having nice features like cover images and thumbnails for those able to appreciate them.
+
+For production use we recommend the upstream [zwbetz-gh/cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme) rather than experimental theme.
 
 ## Table of contents
 
@@ -26,18 +31,18 @@ An accessibility-friendly Hugo theme, ported from the [original Cupper](https://
 
 ## Demo
 
-https://cupper-hugo-theme.netlify.com/
+https://cupper-dfd-x.wildtechgarden.ca/
 
 ## Minimum Hugo version
 
-Hugo version `0.81.0` or higher is required. View the [Hugo releases](https://github.com/gohugoio/hugo/releases) and download the binary for your OS.
+Hugo version `0.87.0` or higher is required. View the [Hugo releases](https://github.com/gohugoio/hugo/releases) and download the binary for your OS.
 
 ## Installation
 
 From the root of your site:
 
 ```
-git submodule add https://github.com/zwbetz-gh/cupper-hugo-theme.git themes/cupper-hugo-theme
+git submodule add https://github.com/danielfdickinson/cupper-hugo-dfd-x.git themes/cupper-hugo-dfd-x.
 ```
 
 ## Updating
@@ -50,7 +55,7 @@ git submodule update --remote --merge
 
 ## Run example site
 
-From the root of `themes/cupper-hugo-theme/exampleSite`:
+From the root of `themes/cupper-hugo-dfd-x/exampleSite`:
 
 ```
 hugo server --themesDir ../..
@@ -58,7 +63,7 @@ hugo server --themesDir ../..
 
 ## Configuration
 
-Copy `config.yaml` from the [`exampleSite`](https://github.com/zwbetz-gh/cupper-hugo-theme/tree/master/exampleSite), then edit as desired. 
+Copy `config.yaml` from the [`exampleSite`](https://github.com/danielfdickinson/cupper-hugo-dfd-x/tree/main/exampleSite), then edit as desired. 
 
 ## Logo
 
@@ -70,7 +75,7 @@ Upload your image to [RealFaviconGenerator](https://realfavicongenerator.net/) t
 
 ## Shortcodes
 
-See the [full list of supported shortcodes](https://cupper-hugo-theme.netlify.com/cupper-shortcodes/).
+See the [full list of supported shortcodes](https://cupper-hugo-dfd-x.wildtechgarden.ca/cupper-shortcodes/).
 
 ## Syntax highlighting
 
@@ -105,7 +110,7 @@ You can provide an optional list of custom CSS files, which must be placed insid
 
 You can provide an optional list of custom JS files, which must be placed inside the `static` dir. These will load after the theme JS loads. So, `static/js/custom_01.js` translates to `js/custom_01.js`.
 
-See the [example site config file](https://github.com/zwbetz-gh/cupper-hugo-theme/blob/master/exampleSite/config.yaml) for sample usage.
+See the [example site config file](https://github.com/danielfdickinson/cupper-hugo-dfd-x/blob/main/exampleSite/config.yaml) for sample usage.
 
 ## Default to Dark Theme
 
@@ -129,8 +134,8 @@ If your site is **not** a git repo, then set `enableGitInfo` to `false` in your 
 
 ## Getting help
 
-If you run into an issue that isn't answered by this documentation or the [`exampleSite`](https://github.com/zwbetz-gh/cupper-hugo-theme/tree/master/exampleSite), then visit the [Hugo forum](https://discourse.gohugo.io/). The folks there are helpful and friendly. **Before** asking your question, be sure to read the [requesting help guidelines](https://discourse.gohugo.io/t/requesting-help/9132).
+If you run into an issue that isn't answered by this documentation or the [`exampleSite`](https://github.com/danielfdickinson/cupper-hugo-dfd-x/tree/main/exampleSite), then visit the [Hugo forum](https://discourse.gohugo.io/). The folks there are helpful and friendly. **Before** asking your question, be sure to read the [requesting help guidelines](https://discourse.gohugo.io/t/requesting-help/9132).
 
 ## Credits
 
-Thank you to [Heydon Pickering](http://www.heydonworks.com) and [The Paciello Group](https://www.paciellogroup.com/) for creating the original Cupper project. 
+Thank you to [Zachary Betz](https://zwbetz.com/) for creating the Cupper-hugo-theme, and thank you to [Heydon Pickering](http://www.heydonworks.com) and [The Paciello Group](https://www.paciellogroup.com/) for creating the original Cupper project. 
