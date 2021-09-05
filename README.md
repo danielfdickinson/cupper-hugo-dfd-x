@@ -31,7 +31,7 @@ For production use we recommend the upstream [zwbetz-gh/cupper-hugo-theme](https
 
 ## Demo
 
-https://cupper-dfd-x.wildtechgarden.ca/
+https://cupper-hugo-dfd-x.wildtechgarden.ca/
 
 ## Minimum Hugo version
 
