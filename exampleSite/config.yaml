@@ -1,11 +1,13 @@
 baseURL: https://example.com
-languageCode: en-us
+language: en
 defaultContentLanguage: en
+languageCode: en-ca
 title: Cupper-hugo-dfd-x
 theme: cupper-hugo-dfd-x
-googleAnalytics: UA-123456789-1
-disqusShortname: yourdiscussshortname
+googleAnalytics: ""
+disqusShortname: ""
 enableGitInfo: true
+description: An experimental Hugo theme, forked from the accessibility-friendly [Cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme).
 
 taxonomies:
   tag: tags
@@ -21,8 +23,8 @@ params:
   homeMetaContent: An accessibility-friendly Hugo theme, ported from the original Cupper project.
   footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper-hugo-dfd-x](https://github.com/danielfdickinson/cupper-hugo-dfd-x). Deployed to [Netlify](https://www.netlify.com/).
   # For more date formats see https://gohugo.io/functions/format/
-  dateFormat: Jan 2, 2006
-  codePenUser: someUser
+  dateFormat: Mon Jan 2, 2006
+  codePenUser: ""
   katex: true
   hideHeaderLinks: false
   search: true
