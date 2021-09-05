@@ -19,7 +19,7 @@ imaging:
 params:
   description: An experimental Hugo theme, forked from the accessibility-friendly [Cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme).
   homeMetaContent: An accessibility-friendly Hugo theme, ported from the original Cupper project.
-  footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper-dfd-x](https://github.com/danielfdickinson/cupper-hugo-dfd-x). Deployed to [Netlify](https://www.netlify.com/).
+  footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper-hugo-dfd-x](https://github.com/danielfdickinson/cupper-hugo-dfd-x). Deployed to [Netlify](https://www.netlify.com/).
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Jan 2, 2006
   codePenUser: someUser
