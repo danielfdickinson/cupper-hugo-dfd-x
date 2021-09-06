@@ -13,7 +13,15 @@
   {{- else -}}
     {{- $summary := trim (.Summary | plainify | htmlUnescape) "\n\r "
       | default .Title }}
-  <meta name="description" content="{{ $summary }}">
+    {{- if and (not .IsHome) (not .Data.Terms) (not .Data.Plurals) (not .Data.Singular) (.File) }}
+      {{- if lt (len $summary) 25 -}}
+        {{- warnf (print (T "seo_colon") " " .File.Path " " (T "meta_description_less_than_25")) -}}
+      {{- end -}}
+      {{- if gt (len $summary) 160 -}}
+        {{- warnf (print (T "seo_colon") " " .File.Path " " (T "meta_description_greater_than_160")) -}}
+      {{- end }}
+    {{- end }}
+      <meta name="description" content="{{ $summary }}">
   {{- end }}
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
@@ -53,16 +61,35 @@
 
   {{- $templateStyles := resources.Get "css/template-styles.css" -}}
   {{- $styles := $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . -}}
-  <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}">
+  {{ if hugo.IsProduction }}
+    {{- $styles = $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . | minify -}}
+  {{- end -}}
+  <style>{{ $styles.Content | safeCSS }}</style>
 
-  {{- range .Site.Params.customCss }}
-  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- range .Site.Params.customCss -}}
+    {{- $stylesheet := resources.Get . -}}
+    {{- if $stylesheet -}}
+      {{- if hugo.IsProduction }}
+        {{- $stylesheet = $stylesheet | minify }}
+      {{- end }}
+    <style>{{ $stylesheet.Content | safeCSS }}</style>
+    {{- end -}}
   {{- end }}
 
-  {{ $title := print .Title " | " .Site.Title -}}
-  {{- if .IsHome -}}
-    {{- $title = .Site.Title -}}
+  {{- $title := print .Title " | " .Site.Title -}}
+  {{- if gt (len $title) 70 -}}
+     {{- $title = .Title -}}
   {{- end -}}
+  {{- if .IsHome -}}
+    {{- if .Site.Params.subtitle -}}
+      {{- $title = printf "%s: %s" .Site.Title .Site.Params.subtitle -}}
+    {{- else -}}
+      {{- $title = .Site.Title -}}
+    {{- end -}}
+    {{- if gt (len $title) 70 -}}
+      {{- $title = .Site.Title -}}
+    {{- end -}}
+  {{- end }}
   <title>{{ $title }}</title>
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/twitter_cards.html" . }}

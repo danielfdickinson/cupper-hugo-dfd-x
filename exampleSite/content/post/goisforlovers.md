@@ -2,6 +2,7 @@
 date: "2014-04-02"
 tags: ["go", "templates", "hugo"]
 title: "(Hu)go Template Primer"
+summary: "Hugo uses the excellent Go html/template library for its template engine."
 ---
 
 Hugo uses the excellent [Go][] [html/template][gohtmltemplate] library for

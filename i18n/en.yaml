@@ -26,3 +26,9 @@
   translation: Search by title...
 - id: search_aria_label
   translation: Search by title
+- id: seo_colon
+  translation: "SEO:"
+- id: meta_description_less_than_25
+  translation: "meta description is less than 25 characters long"
+- id: meta_description_greater_than_160
+  translation: "meta description is greater than 160 characters long"
