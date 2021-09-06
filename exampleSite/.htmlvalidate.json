@@ -24,9 +24,10 @@
             "error",
             {
                 "th": {
-                    "requireAttributes": []
+                    "requiredAttributes": [ ]
                 }
             }
+        ],
         "void-content": "error",
         "no-deprecated-attr": "error",
         "no-inline-style": "error",
