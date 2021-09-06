@@ -6,9 +6,14 @@
         href="{{ .Site.BaseURL }}"
         aria-label="{{ .Site.Title }} home page"
       >
+        {{- $logo := resources.Get "images/logo.svg" -}}
+        {{- if $logo -}}
+          {{ $logo.Content | safeHTML }}
+        {{- else }}
         <img 
           src="{{ "images/logo.svg" | relURL }}" 
           alt="{{ .Site.Params.logoAlt | default "Logo" }}">
+        {{- end }}
       </a>
       <p class="library-desc">
         {{- with .Site.Params.description }}{{ . | markdownify }}{{ end -}}

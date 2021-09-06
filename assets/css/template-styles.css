@@ -66,10 +66,12 @@ svg {
 .img-link {
     border-bottom: none;
 }
-p img {
+p img,
+p svg {
     margin: 0.75rem 0;
 }
-figure p img {
+figure p img,
+figure p svg {
     margin: 0;
 }
 :focus:not([tabindex="-1"]),
@@ -306,6 +308,9 @@ th:empty {
 .tested img {
     max-width: 3rem;
 }
+.tested svg {
+    max-width: 3rem;
+}
 .tested span {
     display: block;
     margin: 0;
@@ -350,6 +355,10 @@ caption {
     border: 0;
 }
 .logo img {
+    width: 100%;
+    max-width: 12rem;
+}
+.logo svg {
     width: 100%;
     max-width: 12rem;
 }
@@ -515,7 +524,8 @@ caption {
 .note > div {
     margin-left: 0.75rem;
 }
-.note > div > img:first-child {
+.note > div > img:first-child,
+.note > div > svg:first-child {
     height: 1.5rem;
 }
 .note > div >:first-child + * {
@@ -1128,6 +1138,10 @@ h1 svg {
 }
 @media (-ms-high-contrast: active) {
   img[src*=".svg"] {
+    background: #fefefe;
+    padding: 0.5rem;
+  }
+  svg {
     background: #fefefe;
     padding: 0.5rem;
   }
