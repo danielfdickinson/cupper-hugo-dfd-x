@@ -4,6 +4,15 @@
         "html-validate:recommended",
         "html-validate:document"
     ],
+    "elements": [
+        "html5",
+        {
+            "th": {
+                "inherit": "th",
+                "requiredAttributes": [ ]
+            }
+        }
+    ],
     "rules": {
         "svg-focusable": "off",
         "void-style": "off",
@@ -20,14 +29,7 @@
         "no-trailing-whitespace": "error",
         "no-redundant-role": "error",
         "aria-label-misuse": "error",
-        "element-required-attributes": [
-            "error",
-            {
-                "th": {
-                    "requiredAttributes": [ ]
-                }
-            }
-        ],
+        "element-required-attributes": "error",
         "void-content": "error",
         "no-deprecated-attr": "error",
         "no-inline-style": "error",
