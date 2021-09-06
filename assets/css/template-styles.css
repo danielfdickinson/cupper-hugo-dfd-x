@@ -168,7 +168,10 @@ code {
     font-weight: bold;
     padding-right: 0.25em;
 }
-
+.cmd code::selection{
+    background: #fefefe;
+    color: rgba(0,0,0,.8);
+}
 /* Lists */
 main ul,
 main ol {
