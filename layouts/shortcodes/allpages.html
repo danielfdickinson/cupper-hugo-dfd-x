@@ -1,0 +1,9 @@
+<ul>
+{{- range site.Pages.ByTitle }}
+<li>
+    <a href="{{ .Permalink }}">
+      {{ .Title }}{{ if .Data.Terms }}: taxonomy{{ else if .Data.Singular }}: {{ .Data.Singular }}{{ end }}
+    </a> — <i><time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Mon Jan 2, 2006" }}</time></i>
+</li>
+{{- end }}
+</ul>
