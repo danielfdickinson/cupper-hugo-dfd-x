@@ -71,7 +71,7 @@ figure p img {
 :focus:not([tabindex="-1"]),
 [data-expands]:focus svg,
 .patterns a:focus .text,
-[for="themer"] :focus + [aria-hidden] {
+.for-themer :focus + [aria-hidden] {
     outline: 4px solid #999;
 }
 a {
@@ -233,21 +233,24 @@ button {
 }
 
 /* Forms */
+.themer-wrapper {
+    text-align: center;
+}
 label {
   display: inline-block;
   font-weight: bold;
 }
-[for="themer"] {
+.for-themer {
   background: #111;
   border-radius: 0.33em;
   color: #fefefe;
   padding: 0.25em 0.75em;
   margin: 0.5rem;
 }
-[for="themer"] [aria-hidden]::before {
+.for-themer [aria-hidden]::before {
   content: 'off';
 }
-[for="themer"] :checked + [aria-hidden]::before {
+.for-themer :checked + [aria-hidden]::before {
   content: 'on';
 }
 
@@ -357,10 +360,14 @@ caption {
     margin: 0 auto;
     padding: 2.25rem;
 }
-[role="contentinfo"] {
+.real-footer {
     font-size: 0.85rem;
     margin-top: 4rem;
     text-align: center;
+}
+
+.real-footer div {
+    margin-bottom: 1rem;
 }
 
 /* Patterns navigation */
@@ -964,7 +971,7 @@ h1 svg {
 }
 @media print {
     .wrapper:not(.print-version) .intro-and-nav,
-    .wrapper:not(.print-version) [role="contentinfo"] {
+    .wrapper:not(.print-version) .real-footer {
         display: none;
     }
     .main-and-footer {

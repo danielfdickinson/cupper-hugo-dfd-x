@@ -5,7 +5,7 @@ languageCode: en-ca
 title: Cupper-hugo-dfd-x
 theme: cupper-hugo-dfd-x
 googleAnalytics: ""
-disqusShortname: ""
+disqusShortname: yourdiscussshortname
 enableGitInfo: true
 description: An experimental Hugo theme, forked from the accessibility-friendly [Cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme).
 
@@ -24,7 +24,7 @@ params:
   footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper-hugo-dfd-x](https://github.com/danielfdickinson/cupper-hugo-dfd-x). Deployed to [Netlify](https://www.netlify.com/).
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Mon Jan 2, 2006
-  codePenUser: ""
+  codePenUser: someUser
   katex: true
   hideHeaderLinks: false
   search: true
