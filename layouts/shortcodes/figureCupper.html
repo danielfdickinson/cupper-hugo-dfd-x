@@ -20,7 +20,7 @@
 
 <figure role="group" aria-describedby="caption-{{ $caption | md5 }}">
   <a href="{{ $original.RelPermalink }}" class="img-link">
-    <img src="{{ $new.RelPermalink }}">
+    <img src="{{ $new.RelPermalink }}"  aria-describedby="caption-{{ $caption | md5 }}">
   </a>
   <figcaption id="caption-{{ $caption | md5 }}">
     {{- $caption | markdownify -}}

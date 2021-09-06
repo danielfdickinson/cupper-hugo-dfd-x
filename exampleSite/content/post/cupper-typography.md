@@ -7,7 +7,6 @@ tags: [hugo, markdown]
 ## Headings
 
 ```
-# Heading 1
 ## Heading 2
 ### Heading 3
 #### Heading 4
@@ -15,7 +14,6 @@ tags: [hugo, markdown]
 ###### Heading 6
 ```
 
-# Heading 1
 ## Heading 2
 ### Heading 3
 #### Heading 4

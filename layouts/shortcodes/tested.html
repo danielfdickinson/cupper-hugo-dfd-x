@@ -21,7 +21,7 @@
           {{- $parts := split . "+" -}}
           {{- $additional := index $parts 1 -}}
           <span class="additional">with <strong>{{ $additional }}</strong></span>
-        {{ end }}
+        {{- end }}
       </td>
     {{- end }}
   </tr>
