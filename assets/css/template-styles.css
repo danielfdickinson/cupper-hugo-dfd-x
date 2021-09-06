@@ -982,6 +982,29 @@ h1 svg {
     width: inherit;
 }
 
+.contact-form p {
+    list-style: 1;
+    width: 100%;
+}
+
+.contact-form p input {
+    font-size: 1em;
+    margin-top: 0;
+    width: 100%;
+}
+
+.contact-form p textarea {
+    font-size: 1em;
+    height: 10em;
+    margin-top: 0;
+    width: 100%;
+}
+
+.contact-form p:nth-last-of-type(2) {
+    font-size: .8em;
+    opacity: .4;
+}
+
 /* Media queries */
 @media screen and (max-width: 45em) {
     body a {

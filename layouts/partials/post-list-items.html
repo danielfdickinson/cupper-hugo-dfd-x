@@ -6,7 +6,7 @@
         <div class="entry-header">
             <h2>
                 <a href="{{ .RelPermalink }}">
-                    {{- partial "cover.html" (dict "cxt" . "isThumbnail" (default  false (.Param "thumbnailInList"))) }} <span class="entry-title">{{ .Title }}</span>
+                    {{- partial "cover.html" (dict "cxt" . "isThumbnail" (default  false (.Param "thumbnailInList")) "useBookmark" true) }} <span class="entry-title">{{ .Title }}</span>
                 </a>
             </h2>
         </div>

@@ -1,7 +1,7 @@
 {{ define "main" }}
   <main id="main">
     <h1>{{ .Title }}</h1>
-    {{- partial "cover.html" (dict "cxt" . "isThumbnail" false ) }}
+    {{- partial "cover.html" (dict "cxt" . "isThumbnail" false  "useBookmark" false) }}
     {{ .Content }}
   </main>
 {{ end }}
