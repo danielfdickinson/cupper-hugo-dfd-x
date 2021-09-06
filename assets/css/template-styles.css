@@ -359,8 +359,10 @@ caption {
     max-width: 12rem;
 }
 .logo svg {
+    height: unset;
     width: 100%;
     max-width: 12rem;
+    max-height: 50bh;
 }
 .library-desc {
     margin-top: 0.5rem;
