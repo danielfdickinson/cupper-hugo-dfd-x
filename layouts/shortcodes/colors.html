@@ -1,11 +1,12 @@
-{{ $colorString := replace (.Get 0) " " "" | upper }}
-{{ $colors := split $colorString "," }}
+{{- $colorString := replace (.Get 0) " " "" | upper -}}
+{{- $colors := split $colorString "," -}}
 <div class="colors-container">
   <ul class="colors">
-    {{ range $colors }}
+    {{- range $colors }}
+      {{ print "<!-- [html-validate-disable-next no-inline-style] -->" | safeHTML }}
       <li style="background-color: {{ . }};{{ if or (eq . "#FFFFFF") (eq . "#FFF")}} border: 1px solid #111{{ end }}">
         <span>{{ . }}</span>
       </li>
-    {{ end }}
+    {{- end }}
   </ul>
 </div>

@@ -1,23 +1,23 @@
-{{ $command := .Get "command" }}
-{{ $options := .Get "options" }}
+{{- $command := .Get "command" -}}
+{{- $options := .Get "options" -}}
 
-{{ with .Page.Resources.ByType "image" }}
-  {{ range . }}
+{{- with .Page.Resources.ByType "image" }}
+  {{- range . }}
 
-    {{ $original := . }}
-    {{ $new := "" }}
+    {{- $original := . -}}
+    {{- $new := "" -}}
 
-    {{ if eq $command "Fit" }}
-      {{ $new = $original.Fit $options }}
-    {{ else if eq $command "Fill" }}
-      {{ $new = $original.Fill $options }}
-    {{ else if eq $command "Resize" }}
-      {{ $new = $original.Resize $options }}
-    {{ else if eq $command "Original" }}
-      {{ $new = $original }}
-    {{ else }}
-      {{ errorf "Invalid image processing command: Must be one of Fit, Fill, Resize, Original." }}
-    {{ end }}
+    {{- if eq $command "Fit" -}}
+      {{- $new = $original.Fit $options -}}
+    {{- else if eq $command "Fill" -}}
+      {{ $new = $original.Fill $options -}}
+    {{- else if eq $command "Resize" -}}
+      {{- $new = $original.Resize $options -}}
+    {{- else if eq $command "Original" -}}
+      {{- $new = $original -}}
+    {{- else -}}
+      {{- errorf "Invalid image processing command: Must be one of Fit, Fill, Resize, Original." -}}
+    {{- end -}}
 
     <div class="gallery">
       <a href="{{ $original.RelPermalink }}" class="img-link">
@@ -25,5 +25,5 @@
       </a>
     </div>
 
-  {{ end }}
-{{ end }}
+  {{- end -}}
+{{- end }}

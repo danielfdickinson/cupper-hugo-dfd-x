@@ -1,28 +1,30 @@
-{{ $img := .Get "img" }}
-{{ $caption := .Get "caption" }}
-{{ $command := .Get "command" }}
-{{ $options := .Get "options" }}
+{{- $img := .Get "img" -}}
+{{- $caption := .Get "caption" -}}
+{{- $command := .Get "command" -}}
+{{- $options := .Get "options" -}}
 
-{{ $original := .Page.Resources.GetMatch (printf "*%s*" $img) }}
-{{ $new := "" }}
+{{- $original := .Page.Resources.GetMatch (printf "*%s*" $img) -}}
+{{- $new := "" -}}
 
-{{ if eq $command "Fit" }}
-  {{ $new = $original.Fit $options }}
-{{ else if eq $command "Fill" }}
-  {{ $new = $original.Fill $options }}
-{{ else if eq $command "Resize" }}
-  {{ $new = $original.Resize $options }}
-{{ else if eq $command "Original" }}
-  {{ $new = $original }}
-{{ else }}
-  {{ errorf "Invalid image processing command: Must be one of Fit, Fill, Resize, Original." }}
-{{ end }}
+{{- if eq $command "Fit" -}}
+  {{- $new = $original.Fit $options -}}
+{{- else if eq $command "Fill" -}}
+  {{- $new = $original.Fill $options -}}
+{{ else if eq $command "Resize" -}}
+  {{- $new = $original.Resize $options -}}
+{{- else if eq $command "Original" -}}
+  {{- $new = $original -}}
+{{- else -}}
+  {{- errorf "Invalid image processing command: Must be one of Fit, Fill, Resize, Original." -}}
+{{- end -}}
 
 <figure role="group" aria-describedby="caption-{{ $caption | md5 }}">
+  {{ print "<!-- [html-validate-disable-next wcag/h30] -->" | safeHTML }}
   <a href="{{ $original.RelPermalink }}" class="img-link">
-    <img src="{{ $new.RelPermalink }}">
+    {{ print "<!-- [html-validate-disable-next wcag/h37] -->" | safeHTML }}
+    <img src="{{ $new.RelPermalink }}"  aria-describedby="caption-{{ $caption | md5 }}">
   </a>
   <figcaption id="caption-{{ $caption | md5 }}">
-    {{ $caption | markdownify }}
+    {{- $caption | markdownify -}}
   </figcaption>
 </figure>

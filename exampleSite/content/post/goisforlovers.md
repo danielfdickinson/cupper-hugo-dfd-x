@@ -235,7 +235,7 @@ Notice how once we have entered the loop the value of {{ . }} has changed. We
 have defined a variable outside of the loop so we have access to it from within
 the loop.
 
-# Hugo Parameters
+## Hugo Parameters
 
 Hugo provides the option of passing values to the template language
 through the site configuration (for sitewide values), or through the meta
@@ -244,7 +244,7 @@ type (supported by your front matter/config format) and use them however
 you want to inside of your templates.
 
 
-## Using Content (page) Parameters
+### Using Content (page) Parameters
 
 In each piece of content you can provide variables to be used by the
 templates. This happens in the [front matter](https://gohugo.io/content-management/front-matter).
