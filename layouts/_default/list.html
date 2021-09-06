@@ -6,19 +6,7 @@
   <input id="search" type="text" placeholder="{{ T "search_placeholder" }}" aria-label="{{ T "search_aria_label" }}" />
   {{- end }}
   <ul class="patterns-list" id="list">
-      {{- range .Pages.ByPublishDate.Reverse }}
-      <li class="post-list">
-          <div class="post-entry">
-              <div class="entry-header">
-                  <h2>
-                      <a href="{{ .RelPermalink }}">
-                          {{- partial "cover.html" (dict "cxt" . "isThumbnail" (default  false (.Param "thumbnailInList"))) }} <span class="entry-title">{{ .Title }}</span>
-                      </a>
-                  </h2>
-              </div>
-          </div>
-      </li>
-      {{- end }}
+      {{- partial "post-list-items" (dict "ctx" . "pages" .Pages) }}
   </ul>
 </main>
 {{ end }}
