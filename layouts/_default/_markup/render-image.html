@@ -1,24 +1,38 @@
 {{- $destination := split .Destination "#" }}
 {{- $image := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (index $destination 0)) }}
+{{- if not $image -}}
+    {{ $image = resources.Get (printf "%s" (index $destination 0)) }}
+{{- end -}}
+{{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
+{{- if hugo.IsExtended -}}
+    {{- $processableFormats = $processableFormats | append "webp" -}}
+{{- end -}}
 
 {{- if $image }}
-    {{- with .Page -}}
-        {{- $imageOptions := "" -}}
-        {{- with .Params.convertImagesTo -}}
-            {{- $imageOptions = printf "%dx%d %s" $image.Width $image.Height . -}}
-        {{- else -}}
-            {{- with .Site.Params.convertImagesTo -}}
+    {{- if (in $processableFormats $image.MediaType.SubType) }}
+        {{- with .Page -}}
+            {{- $imageOptions := "" -}}
+            {{- with .Params.convertImagesTo -}}
                 {{- $imageOptions = printf "%dx%d %s" $image.Width $image.Height . -}}
+            {{- else -}}
+                {{- with .Site.Params.convertImagesTo -}}
+                    {{- $imageOptions = printf "%dx%d %s" $image.Width $image.Height . -}}
+                {{- end -}}
+            {{- end -}}
+            {{- if ne $imageOptions "" -}}
+                {{- $image = $image.Resize $imageOptions -}}
             {{- end -}}
         {{- end -}}
-        {{- if ne $imageOptions "" -}}
-            {{- $image = $image.Resize $imageOptions -}}
-        {{- end -}}
-    {{- end -}}
-
-{{- $final_destination := cond (isset $destination 1) (printf "%s#%s" ($image.RelPermalink) (index $destination 1)) ($image.RelPermalink) -}}
-
-<img loading="lazy" src="{{ $final_destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+        {{- $final_destination := cond (isset $destination 1) (printf "%s#%s" ($image.RelPermalink) (index $destination 1)) ($image.RelPermalink) -}}
+        <img loading="lazy" src="{{ $final_destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+    {{- else if and (eq "svg" $image.MediaType.SubType) }}
+        <span class="wrapper-svg" aria-label="{{ .Text | safeHTML }}">
+        {{ $image.Content | safeHTML }}
+        </span>
+    {{- else }}
+        {{- $final_destination := cond (isset $destination 1) (printf "%s#%s" ($image.RelPermalink) (index $destination 1)) ($image.RelPermalink) -}}
+        <img loading="lazy" src="{{ $final_destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+    {{- end }}
 {{- else }}
 <img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
 {{- end -}}
