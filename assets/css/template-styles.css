@@ -1,7 +1,7 @@
 /* Fonts */
 @font-face {
     font-family: 'Miriam Libre';
-    src: url('{{ "css/fonts/miriamlibre-bold.woff2" | absURL }}') format('woff2'), url('{{ "css/fonts/miriamlibre-bold.woff" | absURL }}') format('woff');
+    src: url('{{ "css/fonts/miriamlibre-bold.woff2" | relURL }}') format('woff2'), url('{{ "css/fonts/miriamlibre-bold.woff" | relURL }}') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -523,7 +523,7 @@ caption {
 }
 .note.warning {
     border-left: 0;
-    background-image: url({{ "css/images/stripe.svg" | absURL }});
+    background-image: url({{ "css/images/stripe.svg" | relURL }});
     background-size: 0.5rem auto;
     background-repeat: repeat-y;
 }
@@ -542,7 +542,7 @@ caption {
     width: 1rem;
     height: 1rem;
     margin-right: 0.25rem;
-    background-image: url({{ "css/images/icon-tick.svg" | absURL }});
+    background-image: url({{ "css/images/icon-tick.svg" | relURL }});
     background-size: 100% auto;
     position: absolute;
     left: -1.25rem;
