@@ -26,12 +26,12 @@
                 }
         ],
         "require-sri": "off",
+        "no-deprecated-attr": "warn",
         "no-trailing-whitespace": "error",
         "no-redundant-role": "error",
         "aria-label-misuse": "error",
         "element-required-attributes": "error",
         "void-content": "error",
-        "no-deprecated-attr": "error",
         "no-inline-style": "error",
         "wcag/h30": "error",
         "wcag/h37": "error",
