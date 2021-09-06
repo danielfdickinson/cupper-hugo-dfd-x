@@ -1,6 +1,6 @@
 {{- $templateDomScripts := resources.Get "js/template-dom-scripts.js" -}}
 {{- $domScripts := $templateDomScripts | resources.ExecuteAsTemplate "js/dom-scripts.js" . -}}
-<script src="{{ $domScripts.RelPermalink }}"></script>  
+<script src="{{ $domScripts.RelPermalink }}"></script>
 
 <script src="{{ "js/prism.js" | relURL }}"></script>
 
