@@ -1,11 +1,11 @@
-{{ $quote := .Inner }}
+{{- $quote := .Inner -}}
 
 <blockquote class="blockquote">
   <p>
-    {{ $quote | markdownify }}
-    {{ with (.Get "author") }}
+    {{- $quote | markdownify -}}
+    {{- with (.Get "author") }}
       <br>
       <span class="author">&mdash; {{ . }}</span>
-    {{ end }}
+    {{- end }}
   </p>
 </blockquote>
