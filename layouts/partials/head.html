@@ -61,10 +61,19 @@
 
   {{- $templateStyles := resources.Get "css/template-styles.css" -}}
   {{- $styles := $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . -}}
-  <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}">
+  {{ if hugo.IsProduction }}
+    {{- $styles = $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . | minify -}}
+  {{- end -}}
+  <style>{{ $styles.Content | safeCSS }}</style>
 
-  {{- range .Site.Params.customCss }}
-  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- range .Site.Params.customCss -}}
+    {{- $stylesheet := resources.Get . -}}
+    {{- if $stylesheet -}}
+      {{- if hugo.IsProduction }}
+        {{- $stylesheet = $stylesheet | minify }}
+      {{- end }}
+    <style>{{ $stylesheet.Content | safeCSS }}</style>
+    {{- end -}}
   {{- end }}
 
   {{ $title := print .Title " | " .Site.Title -}}
