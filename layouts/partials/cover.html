@@ -1,0 +1,75 @@
+{{/*
+MIT License
+
+Copyright (c) 2020 nanxiaobei and adityatelange
+Copyright (c) 2021 adityatelange and danielfdickinson
+*/}}
+{{- $ctx := . -}}
+{{- $isThumbnail := .isThumbnail -}}
+{{- $imageConversion := "" -}}
+{{- with .cxt}}{{/* Apply proper context from dict */}}
+{{- with (.Param "convertImagesTo") -}}
+    {{- $imageConversion = print " " . -}}
+{{- end -}}
+{{- if (and .Params.cover.image (not $.isHidden)) -}}
+{{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
+{{- if eq $isThumbnail true }}
+<span class="entry-cover entry-thumbnail">
+{{- else }}
+<figure class="entry-cover">
+{{- end -}}
+    {{- $responsiveImages := (.Params.cover.responsiveImages | default .Site.Params.cover.responsiveImages) | default true -}}
+    {{- $addLink := (and .Site.Params.cover.linkFullImages (not $.IsHome)) -}}
+    {{- $cover := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) -}}
+    {{- if $cover -}}{{- /* i.e it is present in page bundle */ -}}
+        {{- $sizes := (slice "90" "180" "360" "480" "720" "1080" "1500") -}}
+        {{- if $isThumbnail -}}
+            {{- $sizes := (slice "90" "180" "360") -}}
+        {{- end -}}
+        {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
+        {{- if hugo.IsExtended -}}
+            {{- $processableFormats = $processableFormats | append "webp" -}}
+        {{- end -}}
+        {{- $prod := (hugo.IsProduction | or (eq .Site.Params.env "production")) }}
+        {{- if (and (in $processableFormats $cover.MediaType.SubType) ($responsiveImages) (or (eq $prod true)  (eq $isThumbnail true))) }}
+            {{- if $addLink }}<a href="{{ ($cover.Resize (printf "%dx%d%s" $cover.Width $cover.Height $imageConversion)).RelPermalink }}" target="_blank"
+                rel="noopener noreferrer">{{ end -}}
+        <img loading="lazy" srcset="{{- range $size := $sizes -}}
+                        {{- if ge $cover.Width $size }}
+                            {{ printf "%s %s" (($cover.Resize (printf "%sx%s" $size $imageConversion)).RelPermalink) (printf "%sw ," $size) -}}
+                        {{- end }}
+                    {{- end -}}{{ ($cover.Resize (printf "%dx%d%s" $cover.Width $cover.Height $imageConversion)).RelPermalink }}"
+            sizes="{{ if ne $isThumbnail true }}(min-width: 768px) 720px, 100vw{{ else }}((min-width: 2048px) and (max-width: 4096px)) 360px, ((min-width: 1024px) and (max-width: 2048px)) 180px, (min-width: 768px) 90px, 100vw{{ end }}" src="{{ ($cover.Resize (printf "%dx%d%s" $cover.Width $cover.Height $imageConversion)).RelPermalink }}" alt="{{ $alt }}"
+            width="{{ $cover.Width }}" height="{{ $cover.Height }}">
+        {{- else if and (eq "svg" $cover.MediaType.SubType) (or (eq $prod true)  (eq $isThumbnail true)) }}
+            {{- if $addLink }}<a href="{{ $cover.RelPermalink }}" target="_blank"
+                rel="noopener noreferrer" aria-label="{{ $alt }}">{{ end -}}
+            {{- $cover.Content | safeHTML -}}
+        {{- else }}{{/* Unprocessable image or responsive images disabled */}}
+            {{- if $addLink }}<a href="{{ $cover.RelPermalink }}" target="_blank"
+                rel="noopener noreferrer">{{ end -}}
+        <img loading="lazy" src="{{ (path.Join .RelPermalink .Params.cover.image) | relURL }}" alt="{{ $alt }}">
+        {{- end -}}
+    {{- else }}{{/* For absolute urls and external links, no img processing here */}}
+        {{- if $addLink }}<a href="{{ (.Params.cover.image) | relURL }}" target="_blank"
+            rel="noopener noreferrer">{{ end -}}
+            <img loading="lazy" src="{{ (.Params.cover.image) | relURL }}" alt="{{ $alt }}">
+    {{- end }}
+    {{- if $addLink }}</a>{{- end -}}
+    {{- /*  Display Caption  */ -}}
+    {{- if and (not $.IsHome) (not $isThumbnail) }}
+        {{- with .Params.cover.caption }}<p>{{ . | markdownify }}</p>{{- end }}
+    {{- end }}
+{{- if eq $isThumbnail true }}
+</span>
+{{- else }}
+</figure>
+{{- end -}}
+{{- else }}
+<span class="entry-cover{{ if eq $isThumbnail true }} entry-thumbnail{{ else }} bookmark{{ end }}">
+    <svg aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+    </svg>
+</span>
+{{- end }}{{/* End image */}}
+{{- end -}}{{- /* End context */ -}}

@@ -59,6 +59,10 @@ img {
     max-width: 100%;
     max-height: 50vh;
 }
+svg {
+    max-width: 100%;
+    max-height: 50vh;
+}
 .img-link {
     border-bottom: none;
 }
@@ -549,6 +553,8 @@ caption {
 figure {
     text-align: center;
 }
+
+figure p,
 figcaption {
     font-size: 0.85rem;
     font-style: italic;
@@ -559,6 +565,7 @@ main {
     counter-reset: fig;
     min-height: 100vh;
 }
+figure p::before,
 figcaption::before {
     counter-increment: fig;
     content: 'Figure ' counter(fig) ':\0020';
@@ -741,7 +748,8 @@ a svg,
 button svg,
 h1 svg,
 th svg,
-li > svg {
+li > svg,
+.bookmark svg {
     height: 0.75em;
     width: 0.75em;
     margin-right: 0.25em;
@@ -900,6 +908,80 @@ h1 svg {
   justify-content: center;
 }
 
+/* Thumbnails in list */
+.patterns-list .post-entry h2 a {
+    flex-wrap: wrap;
+}
+.patterns-list h2,
+.patterns-list .post-entry {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+.patterns-list .post-entry h2 {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.patterns-list .post-entry h2 a {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    height: 100%;
+}
+
+.patterns-list .post-entry h2 a img,
+.patterns-list .post-entry h2 a svg {
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+.patterns-list .post-list {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+.entry-cover.entry-thumbnail {
+    display: block;
+    height: auto;
+    flex: 3 0 auto;
+    margin-bottom: .2rem;
+    margin-right: .4rem;
+    margin-top: .2rem;
+    max-height: 100%;
+    max-width: 12%;
+    min-width: 1rem;
+}
+
+.entry-cover.bookmark {
+    display: block;
+    flex: 0 0 .75em;
+    margin-bottom: .2rem;
+    margin-right: .4rem;
+    margin-top: .2rem;
+}
+
+.entry-cover ~ .entry-title {
+    display: block;
+    flex: 1 0 auto;
+    margin-bottom: .4rem;
+    margin-top: .4rem;
+    max-width: 87%;
+    padding-bottom: .4rem;
+    padding-top: .4rem;
+}
+.entry-thumbnail svg {
+    height: inherit;
+    width: inherit;
+}
+
 /* Media queries */
 @media screen and (max-width: 45em) {
     body a {
@@ -915,6 +997,9 @@ h1 svg {
     }
     .intro-and-nav {
         border-right: none;
+        height: auto;
+        position: static;
+        width: 100%;
     }
     .intro-and-nav > div {
         padding: 1.5rem;
