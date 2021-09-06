@@ -63,21 +63,15 @@ svg {
     max-width: 100%;
     max-height: 50vh;
 }
-.wrapper-svg {
-    display: inline-block;
-    max-width: 100%;
-    max-height: 50vh;
-    padding: 0;
-}
 .img-link {
     border-bottom: none;
 }
 p img,
-p .wrapper-svg {
+p svg {
     margin: 0.75rem 0;
 }
 figure p img,
-figure p .wrapper-svg {
+figure p svg {
     margin: 0;
 }
 :focus:not([tabindex="-1"]),
@@ -314,7 +308,7 @@ th:empty {
 .tested img {
     max-width: 3rem;
 }
-.tested .wrapper-svg {
+.tested svg {
     max-width: 3rem;
 }
 .tested span {
@@ -364,7 +358,7 @@ caption {
     width: 100%;
     max-width: 12rem;
 }
-.logo .wrapper-svg {
+.logo svg {
     width: 100%;
     max-width: 12rem;
 }
@@ -531,7 +525,7 @@ caption {
     margin-left: 0.75rem;
 }
 .note > div > img:first-child,
-.note > div > wrapper-svg:first-child {
+.note > div > svg:first-child {
     height: 1.5rem;
 }
 .note > div >:first-child + * {
@@ -950,8 +944,7 @@ h1 svg {
 }
 
 .patterns-list .post-entry h2 a img,
-.patterns-list .post-entry h2 a svg,
-.patterns-list .post-entry h2 a .wrapper-svg {
+.patterns-list .post-entry h2 a svg {
     display: block;
     height: auto;
     margin-left: auto;
@@ -1172,9 +1165,4 @@ h1 svg {
 ::selection {
   background: rgba(0,0,0,.8);
   color: #fefefe;
-}
-
-.wrapper-svg svg {
-    height: 100%;
-    width: 100%;
 }

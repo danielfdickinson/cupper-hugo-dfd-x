@@ -8,9 +8,7 @@
       >
         {{- $logo := resources.Get "images/logo.svg" -}}
         {{- if $logo -}}
-          <span class="wrapper-svg" aria-label="{{ site.Params.logoAlt | default "Logo" }}">
           {{ $logo.Content | safeHTML }}
-          </span>
         {{- else }}
         <img 
           src="{{ "images/logo.svg" | relURL }}" 

@@ -26,9 +26,7 @@
         {{- $final_destination := cond (isset $destination 1) (printf "%s#%s" ($image.RelPermalink) (index $destination 1)) ($image.RelPermalink) -}}
         <img loading="lazy" src="{{ $final_destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
     {{- else if and (eq "svg" $image.MediaType.SubType) }}
-        <span class="wrapper-svg" aria-label="{{ .Text | safeHTML }}">
         {{ $image.Content | safeHTML }}
-        </span>
     {{- else }}
         {{- $final_destination := cond (isset $destination 1) (printf "%s#%s" ($image.RelPermalink) (index $destination 1)) ($image.RelPermalink) -}}
         <img loading="lazy" src="{{ $final_destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
