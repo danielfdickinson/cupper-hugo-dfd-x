@@ -2,6 +2,7 @@
 title: "Quotes by Carl Jung"
 date: 2018-12-26T00:29:41-06:00
 tags: ["quotes"]
+summary: "A random selection of quotes by Carl Jung"
 ---
 
 {{< blockquote author="Carl Jung" >}}

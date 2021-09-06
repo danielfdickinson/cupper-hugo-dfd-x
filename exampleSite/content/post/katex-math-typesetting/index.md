@@ -2,6 +2,7 @@
 title: "Katex Math Typesetting"
 date: 2019-03-28
 tags: [katex, math, typesetting, hugo]
+summary: "Enable Katex in the config file by setting the `katex` param to `true`. This will import the necessary Katex CSS/JS."
 ---
 
 Enable Katex in the config file by setting the `katex` param to `true`. This will import the necessary Katex CSS/JS. 

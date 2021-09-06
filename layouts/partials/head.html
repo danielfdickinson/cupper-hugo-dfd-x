@@ -13,8 +13,16 @@
   {{- else -}}
     {{- $summary := trim (.Summary | plainify | htmlUnescape) "\n\r "
       | default .Title }}
-  <meta name="description" content="{{ $summary }}">
-  {{- end }}
+    {{- if and (not .IsHome) (not .Data.Terms) (not .Data.Plurals) (not .Data.Singular) (.File) }}
+      {{- if lt (len $summary) 25 -}}
+        {{- warnf (print (T "seo_colon") " " .File.Path " " (T "meta_description_less_than_25")) -}}
+      {{- end -}}
+      {{- if gt (len $summary) 160 -}}
+        {{- warnf (print (T "seo_colon") " " .File.Path " " (T "meta_description_greater_than_160")) -}}
+      {{- end }}
+    {{- end }}
+      <meta name="description" content="{{ $summary }}">
+  {{ end }}
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
