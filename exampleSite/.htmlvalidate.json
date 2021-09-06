@@ -20,7 +20,13 @@
         "no-trailing-whitespace": "error",
         "no-redundant-role": "error",
         "aria-label-misuse": "error",
-        "element-required-attributes": "error",
+        "element-required-attributes": [
+            "error",
+            {
+                "th": {
+                    "requireAttributes": []
+                }
+            }
         "void-content": "error",
         "no-deprecated-attr": "error",
         "no-inline-style": "error",
