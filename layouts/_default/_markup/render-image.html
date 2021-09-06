@@ -1,0 +1,24 @@
+{{- $destination := split .Destination "#" }}
+{{- $image := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (index $destination 0)) }}
+
+{{- if $image }}
+    {{- with .Page -}}
+        {{- $imageOptions := "" -}}
+        {{- with .Params.convertImagesTo -}}
+            {{- $imageOptions = printf "%dx%d %s" $image.Width $image.Height . -}}
+        {{- else -}}
+            {{- with .Site.Params.convertImagesTo -}}
+                {{- $imageOptions = printf "%dx%d %s" $image.Width $image.Height . -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if ne $imageOptions "" -}}
+            {{- $image = $image.Resize $imageOptions -}}
+        {{- end -}}
+    {{- end -}}
+
+{{- $final_destination := cond (isset $destination 1) (printf "%s#%s" ($image.RelPermalink) (index $destination 1)) ($image.RelPermalink) -}}
+
+<img loading="lazy" src="{{ $final_destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{- else }}
+<img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{- end -}}

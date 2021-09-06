@@ -36,6 +36,8 @@
       </section>
     {{- end }}
 
+    {{- partial "cover.html" (dict "cxt" . "isThumbnail" false ) }}
+
     {{- if ne .Params.toc false }}
       {{- partial "toc" . }}
     {{- end }}
