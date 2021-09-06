@@ -55,9 +55,12 @@ menu:
     - name: Contact Form
       url: /contact-form/
       weight: 5
+    - name: All Pages (List)
+      url: /allpages/
+      weight: 6
     - name: RSS
       url: /index.xml
-      weight: 6
+      weight: 7
 
 markup:
   defaultMarkdownHandler: goldmark
