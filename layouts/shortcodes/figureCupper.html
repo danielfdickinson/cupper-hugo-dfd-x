@@ -19,7 +19,9 @@
 {{- end -}}
 
 <figure role="group" aria-describedby="caption-{{ $caption | md5 }}">
+  {{ print "<!-- [html-validate-disable-next wcag-h30] -->" | safeHTML }}
   <a href="{{ $original.RelPermalink }}" class="img-link">
+    {{ print "<!-- [html-validate-disable-next wcag-h37] -->" | safeHTML }}
     <img src="{{ $new.RelPermalink }}"  aria-describedby="caption-{{ $caption | md5 }}">
   </a>
   <figcaption id="caption-{{ $caption | md5 }}">

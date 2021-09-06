@@ -17,20 +17,20 @@
                 }
         ],
         "require-sri": "off",
-        "no-trailing-whitespace": "warn",
-        "no-redundant-role": "warn",
-        "aria-label-misuse": "warn",
-        "element-required-attributes": "warn",
-        "void-content": "warn",
-        "no-deprecated-attr": "warn",
-        "no-inline-style": "warn",
-        "wcag/h30": "warn",
-        "wcag/h37": "warn",
-        "no-redundant-for": "warn",
-        "input-missing-label": "warn",
-        "heading-level": "warn",
+        "no-trailing-whitespace": "error",
+        "no-redundant-role": "error",
+        "aria-label-misuse": "error",
+        "element-required-attributes": "error",
+        "void-content": "error",
+        "no-deprecated-attr": "error",
+        "no-inline-style": "error",
+        "wcag/h30": "error",
+        "wcag/h37": "error",
+        "no-redundant-for": "error",
+        "input-missing-label": "error",
+        "heading-level": "error",
         "text-content": "error",
         "long-title": "error",
-        "element-permitted-content": "warn"
+        "element-permitted-content": "error"
     }
 }

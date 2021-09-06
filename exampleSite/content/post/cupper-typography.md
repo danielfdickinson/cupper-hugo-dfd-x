@@ -133,7 +133,7 @@ This
 <html>
 ```
 
-tag is block code. 
+tag is block code.
 ````
 
 This
@@ -142,4 +142,4 @@ This
 <html>
 ```
 
-tag is block code. 
+tag is block code.

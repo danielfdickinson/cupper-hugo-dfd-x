@@ -2,6 +2,7 @@
 <main id="main">
   <h1>{{ .Title }}</h1>
   {{- if site.Params.search }}
+  {{ print "<!-- [html-validate-disable-next input-missing-label] -->" | safeHTML }}
   <input id="search" type="text" placeholder="{{ T "search_placeholder" }}" aria-label="{{ T "search_aria_label" }}" />
   {{- end }}
   <ul class="patterns-list" id="list">
