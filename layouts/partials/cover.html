@@ -13,7 +13,11 @@ Copyright (c) 2021 adityatelange and danielfdickinson
 {{- end -}}
 {{- if (and .Params.cover.image (not $.isHidden)) -}}
 {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
-<figure class="entry-cover{{ if eq $isThumbnail true }} bookmark{{ end }}">
+{{- if eq $isThumbnail true }}
+<span class="entry-cover entry-thumbnail">
+{{- else }}
+<figure class="entry-cover">
+{{- end -}}
     {{- $responsiveImages := (.Params.cover.responsiveImages | default .Site.Params.cover.responsiveImages) | default true -}}
     {{- $addLink := (and .Site.Params.cover.linkFullImages (not $.IsHome)) -}}
     {{- $cover := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) -}}
@@ -56,12 +60,12 @@ Copyright (c) 2021 adityatelange and danielfdickinson
     {{- if and (not $.IsHome) (not $isThumbnail) }}
         {{- with .Params.cover.caption }}<p>{{ . | markdownify }}</p>{{- end }}
     {{- end }}
-</figure>
+</span>
 {{- else }}
-<figure class="entry-cover{{ if eq $isThumbnail true }} entry-thumbnail{{ else }} bookmark{{ end }}">
+<span class="entry-cover{{ if eq $isThumbnail true }} entry-thumbnail{{ else }} bookmark{{ end }}">
     <svg aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
     </svg>
-</figure>
+</span>
 {{- end }}{{/* End image */}}
 {{- end -}}{{- /* End context */ -}}
