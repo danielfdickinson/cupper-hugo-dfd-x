@@ -1,4 +1,4 @@
-<header class="intro-and-nav" role="banner">
+<header class="intro-and-nav">
   <div>
     <div class="intro">
       <a
@@ -11,12 +11,12 @@
           alt="{{ .Site.Params.logoAlt | default "Logo" }}">
       </a>
       <p class="library-desc">
-        {{ with .Site.Params.description }} {{ . | markdownify }} {{ end }}
+        {{- with .Site.Params.description }}{{ . | markdownify }}{{ end -}}
       </p>
     </div>
     {{ partial "nav.html" . }}
-    {{ if eq .Site.Params.moveFooterToHeader true }}
-      {{ partial "footer.html" . }}
-    {{ end }}
+    {{- if eq .Site.Params.moveFooterToHeader true }}
+      {{- partial "footer.html" . }}
+    {{- end }}
   </div>
 </header>

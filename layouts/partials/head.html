@@ -6,15 +6,15 @@
   {{ hugo.Generator }}
   <link rel="canonical" href="{{ .RelPermalink }}">
 
-  {{ if .IsHome }}
-    {{ with .Site.Params.homeMetaContent }}
-      <meta name="description" content="{{ . | plainify }}">
-    {{ end }}
-  {{ else }}
-    {{ $summary := trim (.Summary | plainify | htmlUnescape) "\n\r"
+  {{- if .IsHome -}}
+    {{- with .Site.Params.homeMetaContent }}
+  <meta name="description" content="{{ . | plainify }}">
+    {{- end -}}
+  {{- else -}}
+    {{- $summary := trim (.Summary | plainify | htmlUnescape) "\n\r "
       | default .Title }}
-    <meta name="description" content="{{ $summary }}">
-  {{ end }}
+  <meta name="description" content="{{ $summary }}">
+  {{- end }}
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}"> 
@@ -51,17 +51,17 @@
 
   <link rel="stylesheet" href="{{ "css/prism.css" | relURL }}" media="none" onload="this.media='all';">
 
-  {{ $templateStyles := resources.Get "css/template-styles.css" }}
-  {{ $styles := $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . }}
+  {{- $templateStyles := resources.Get "css/template-styles.css" -}}
+  {{- $styles := $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . -}}
   <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}">
 
-  {{ range .Site.Params.customCss }}
-    <link rel="stylesheet" href="{{ . | relURL }}">
-  {{ end }}
+  {{- range .Site.Params.customCss }}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- end }}
 
-  {{ $title := print .Title " | " .Site.Title }}
-  {{ if .IsHome }}
-    {{ $title = .Site.Title }}
-  {{ end }}
+  {{ $title := print .Title " | " .Site.Title -}}
+  {{- if .IsHome -}}
+    {{- $title = .Site.Title -}}
+  {{- end -}}
   <title>{{ $title }}</title>
 </head>
