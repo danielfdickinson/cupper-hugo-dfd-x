@@ -76,10 +76,20 @@
     {{- end -}}
   {{- end }}
 
-  {{ $title := print .Title " | " .Site.Title -}}
-  {{- if .IsHome -}}
-    {{- $title = .Site.Title -}}
+  {{- $title := print .Title " | " .Site.Title -}}
+  {{- if gt (len $title) 70 -}}
+     {{- $title = .Title -}}
   {{- end -}}
+  {{- if .IsHome -}}
+    {{- if .Site.Params.subtitle -}}
+      {{- $title = printf "%s: %s" .Site.Title .Site.Params.subtitle -}}
+    {{- else -}}
+      {{- $title = .Site.Title -}}
+    {{- end -}}
+    {{- if gt (len $title) 70 -}}
+      {{- $title = .Site.Title -}}
+    {{- end -}}
+  {{- end }}
   <title>{{ $title }}</title>
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/twitter_cards.html" . }}

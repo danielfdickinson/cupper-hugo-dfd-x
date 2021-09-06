@@ -18,6 +18,7 @@ imaging:
   quality: 99
 
 params:
+  subtitle: Experimental Hugo Theme
   description: An experimental Hugo theme, forked from the accessibility-friendly [Cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme).
   homeMetaContent: An accessibility-friendly Hugo theme, ported from the original Cupper project.
   footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper-hugo-dfd-x](https://github.com/danielfdickinson/cupper-hugo-dfd-x). Deployed to [Netlify](https://www.netlify.com/).
