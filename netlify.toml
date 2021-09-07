@@ -1,0 +1,57 @@
+[build]
+  base = "exampleSite"
+  publish = "public"
+  command = "hugo --gc"
+
+[build.environment]
+  HUGO_VERSION = "0.88.1"
+  TZ = "America/Toronto"
+#  GIT_LFS_ENABLED = 1
+#  GIT_LFS_FETCH_INCLUDE = "*.jpg,*.png,*.jpeg,*.svg,*.gif,*.pdf,*.mp4,*.bmp,*.webp,*.ico"
+
+[context.production]
+  environment = { HUGO_BASEURL = "https://cupper-hugo-dfd-x.wildtechgarden.ca/" }
+
+[context.deploy-preview]
+  command = "hugo --gc -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy]
+  command = "hugo --gc -b $DEPLOY_PRIME_URL"
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"
+
+[[plugins]]
+  package = "netlify-plugin-html-validate"
+
+    [plugins.inputs]
+      ext = "html"
+      config = ".htmlvalidate.json"
+
+[[plugins]]
+  package = "netlify-plugin-hugo-cache-resources"
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+
+    [plugins.inputs]
+    contexts = [
+      'production'
+    ]
+
+    [plugins.inputs.minifierOptions]
+    collapseBooleanAttributes = true
+    collapseInlineTagWhitespace = true
+    collapseWhitespace = true
+    conservativeCollapse = true
+    decodeEntities = true
+    preserveLineBreaks = true
+    removeAttributeQuotes = true
+    removeComments = true
+    removeEmptyAttributes = true
+    removeEmptyElements = true
+    removeOptionalTags = true
+    removeRedundantAttributes = true
+    removeScriptTypeAttributes = true
+    removeTypeLinkTypeAtttributes = true
+    useShortDocType = true
