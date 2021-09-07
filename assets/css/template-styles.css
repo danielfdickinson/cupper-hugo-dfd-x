@@ -921,14 +921,12 @@ h1 svg {
 }
 
 /* Thumbnails in list */
-.patterns-list .post-entry h2 a {
-    flex-wrap: wrap;
-}
 .patterns-list h2,
 .patterns-list .post-entry {
     font-size: 1.25rem;
     line-height: 1.6;
 }
+
 .patterns-list .post-entry h2 {
     display: block;
     font-size: 1.25rem;
@@ -936,40 +934,41 @@ h1 svg {
 }
 
 .patterns-list .post-entry h2 a {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    justify-items: flex-start;
-    height: 100%;
-}
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+ }
 
-.patterns-list .post-entry h2 a img,
-.patterns-list .post-entry h2 a svg {
-    display: block;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 100%;
-    max-width: 100%;
-}
 .patterns-list .post-list {
+    display: block;
+    font-size: 1.25rem;
     margin-top: 0;
     padding-top: 0;
 }
 
+.entry-cover img,
+.entry-cover svg {
+    height: auto;
+    max-width: 100%;
+    width: auto;
+}
 
 .entry-cover.entry-thumbnail {
-    display: block;
-    height: auto;
-    flex: 3 0 auto;
-    margin-bottom: .2rem;
+    display: inline-block;
+    margin-bottom: .4rem;
     margin-right: .4rem;
-    margin-top: .2rem;
-    max-height: 100%;
-    max-width: 12%;
-    min-width: 1rem;
+    margin-top: .4rem;
+    text-align: center;
+    width: 12%;
+    vertical-align: middle;
+}
+
+.post-entry .entry-cover.entry-thumbnail img,
+.post-entry .entry-cover.entry-thumbnail svg {
+    display: inline-block;
+    height: auto;
+    max-height: 3.4rem;
+    width: auto;
 }
 
 .entry-cover.bookmark {
@@ -980,15 +979,15 @@ h1 svg {
     margin-top: .2rem;
 }
 
-.entry-cover ~ .entry-title {
-    display: block;
-    flex: 1 0 auto;
+.entry-thumbnail ~ .entry-title {
+    display: inline-block;
     margin-bottom: .4rem;
     margin-top: .4rem;
-    max-width: 87%;
-    padding-bottom: .4rem;
-    padding-top: .4rem;
+    max-width: 85%;
+    vertical-align: middle;
 }
+
+.entry-thumbnail img,
 .entry-thumbnail svg {
     height: inherit;
     width: inherit;
