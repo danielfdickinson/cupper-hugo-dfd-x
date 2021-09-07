@@ -243,6 +243,7 @@ button {
 
 /* Forms */
 .themer-wrapper {
+    margin-bottom: 1rem;
     text-align: center;
 }
 label {
@@ -362,7 +363,7 @@ caption {
     height: unset;
     width: 100%;
     max-width: 12rem;
-    max-height: 50bh;
+    max-height: 50vh;
 }
 .library-desc {
     margin-top: 0.5rem;
@@ -384,10 +385,6 @@ caption {
     text-align: center;
 }
 
-.real-footer div {
-    margin-bottom: 1rem;
-}
-
 /* Patterns navigation */
 .patterns {
     overflow: auto;
@@ -406,8 +403,6 @@ caption {
 .patterns li {
     line-height: 1.125;
     list-style: none;
-}
-.patterns li + li {
 }
 .patterns ul ul {
     margin-left: 0.75rem;
@@ -535,7 +530,7 @@ caption {
 }
 .note.warning {
     border-left: 0;
-    background-image: url({{ "css/images/stripe.svg" | relURL }});
+    background-image: url('{{ "css/images/stripe.svg" | relURL }}');
     background-size: 0.5rem auto;
     background-repeat: repeat-y;
 }
@@ -554,7 +549,7 @@ caption {
     width: 1rem;
     height: 1rem;
     margin-right: 0.25rem;
-    background-image: url({{ "css/images/icon-tick.svg" | relURL }});
+    background-image: url('{{ "css/images/icon-tick.svg" | relURL }}');
     background-size: 100% auto;
     position: absolute;
     left: -1.25rem;
@@ -977,6 +972,7 @@ h1 svg {
     display: inline-block;
     height: auto;
     max-height: 3.4rem;
+    vertical-align: middle;
     width: auto;
 }
 
@@ -985,6 +981,7 @@ h1 svg {
     display: inline-block;
     height: auto;
     max-height: .75em;
+    vertical-align: middle;
     width: .75em;
 }
 
@@ -1030,7 +1027,7 @@ h1 svg {
     body a {
       hyphens: auto;
     }
-    [role="banner"] {
+    header.intro-and-nav {
         position: static;
         width: auto;
         height: auto;
@@ -1040,9 +1037,6 @@ h1 svg {
     }
     .intro-and-nav {
         border-right: none;
-        height: auto;
-        position: static;
-        width: 100%;
     }
     .intro-and-nav > div {
         padding: 1.5rem;
