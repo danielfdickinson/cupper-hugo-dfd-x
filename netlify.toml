@@ -13,13 +13,16 @@
   environment = { HUGO_BASEURL = "https://cupper-hugo-dfd-x.wildtechgarden.ca/" }
 
 [context.deploy-preview]
-  command = "hugo --gc -b $DEPLOY_PRIME_URL"
+  command = "hugo --gc ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
 
 [context.branch-deploy]
-  command = "hugo --gc -b $DEPLOY_PRIME_URL"
+  command = "hugo --gc ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
 
 [[plugins]]
   package = "netlify-plugin-checklinks"
+
+    [plugins.inputs]
+      checkExternal = false
 
 [[plugins]]
   package = "netlify-plugin-html-validate"

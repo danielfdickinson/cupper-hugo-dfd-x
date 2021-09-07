@@ -52,9 +52,9 @@ Copyright (c) 2021 adityatelange and danielfdickinson
         <img loading="lazy" src="{{ (path.Join .RelPermalink .Params.cover.image) | relURL }}" alt="{{ $alt }}">
         {{- end -}}
     {{- else }}{{/* For absolute urls and external links, no img processing here */}}
-        {{- if $addLink }}<a href="{{ (.Params.cover.image) | relURL }}" target="_blank"
+        {{- if $addLink }}<a href="{{ (.Params.cover.image) | absURL }}" target="_blank"
             rel="noopener noreferrer">{{ end -}}
-            <img loading="lazy" src="{{ (.Params.cover.image) | relURL }}" alt="{{ $alt }}">
+            <img loading="lazy" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}">
     {{- end }}
     {{- if $addLink }}</a>{{- end -}}
     {{- /*  Display Caption  */ -}}
