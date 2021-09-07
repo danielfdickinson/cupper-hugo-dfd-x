@@ -1,2 +1,4 @@
 exampleSite/public/
 resources/
+# Local Netlify folder
+.netlify
