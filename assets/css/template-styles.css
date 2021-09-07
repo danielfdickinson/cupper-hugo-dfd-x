@@ -972,6 +972,7 @@ h1 svg {
     display: inline-block;
     height: auto;
     max-height: 3.4rem;
+    vertical-align: middle;
     width: auto;
 }
 
@@ -980,6 +981,7 @@ h1 svg {
     display: inline-block;
     height: auto;
     max-height: .75em;
+    vertical-align: middle;
     width: .75em;
 }
 
