@@ -1028,7 +1028,7 @@ h1 svg {
     body a {
       hyphens: auto;
     }
-    [role="banner"] {
+    header {
         position: static;
         width: auto;
         height: auto;
@@ -1038,9 +1038,6 @@ h1 svg {
     }
     .intro-and-nav {
         border-right: none;
-        height: auto;
-        position: static;
-        width: 100%;
     }
     .intro-and-nav > div {
         padding: 1.5rem;
