@@ -1,22 +1,22 @@
 [build]
   base = "exampleSite"
   publish = "public"
-  command = "hugo --gc"
+  command = "hugo"
 
 [build.environment]
   HUGO_VERSION = "0.88.1"
   TZ = "America/Toronto"
-#  GIT_LFS_ENABLED = 1
+#  GIT_LFS_ENABLED = "1"
 #  GIT_LFS_FETCH_INCLUDE = "*.jpg,*.png,*.jpeg,*.svg,*.gif,*.pdf,*.mp4,*.bmp,*.webp,*.ico"
 
 [context.production]
-  environment = { HUGO_BASEURL = "https://cupper-hugo-dfd-x.wildtechgarden.ca/" }
+  command = "hugo ${URL:+-b $URL}"
 
 [context.deploy-preview]
-  command = "hugo --gc ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
+  command = "hugo  ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
 
 [context.branch-deploy]
-  command = "hugo --gc ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
+  command = "hugo ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
 
 [[plugins]]
   package = "netlify-plugin-checklinks"
@@ -39,7 +39,8 @@
 
     [plugins.inputs]
     contexts = [
-      'production'
+      'production',
+      'branch-deploy'
     ]
 
     [plugins.inputs.minifierOptions]

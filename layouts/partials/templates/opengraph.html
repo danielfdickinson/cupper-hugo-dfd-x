@@ -2,14 +2,6 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .RelPermalink }}" />
-{{- if .Params.cover.image -}}
-{{- if (ne .Params.cover.relative true) }}
-<meta property="og:image" content="{{ .Params.cover.image | relURL }}" />
-{{- else}}
-<meta property="og:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | relURL }}" />
-{{- end}}
-{{- else }}
-
 {{- with $.Params.images -}}
 {{- range first 6 . }}<meta property="og:image" content="{{ . | relURL }}" />{{ end -}}
 {{- else -}}
@@ -22,7 +14,6 @@
 {{- with $.Site.Params.images }}<meta property="og:image" content="{{ index . 0 | relURL }}"/>{{ end -}}
 {{- end -}}
 {{- end -}}
-{{- end }}
 
 {{- if .IsPage }}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}

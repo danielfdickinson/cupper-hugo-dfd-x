@@ -38,6 +38,15 @@ params:
   customJs:
     - js/custom_01.js
     - js/custom_02.js
+  thumbnailInList: true
+  # convertImagesTo = "webp"
+
+  cover:
+    linkFullImages: true
+    responsiveImages: true
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false
 
 menu:
   nav:
