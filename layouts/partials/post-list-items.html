@@ -1,12 +1,13 @@
 {{- $ctx := .ctx -}}
 {{- $pages := .pages -}}
+{{- $isThumbnail := default false (default $ctx.Site.Params.thumbnailInList $ctx.Params.thumbnailInList) -}}
 {{- range $pages.ByPublishDate.Reverse }}
 <li class="post-list">
     <div class="post-entry">
         <div class="entry-header">
             <h2>
                 <a href="{{ .RelPermalink }}">
-                    {{- partial "cover.html" (dict "cxt" . "isThumbnail" (default  false (.Param "thumbnailInList")) "useBookmark" true) }} <span class="entry-title">{{ .Title }}</span>
+                    {{- partial "cover.html" (dict "cxt" $ctx "entryPage" . "isThumbnail" $isThumbnail "useBookmark" true) }} <span class="entry-title">{{ .Title }}</span>
                 </a>
             </h2>
         </div>

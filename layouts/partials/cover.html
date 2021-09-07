@@ -4,23 +4,24 @@ MIT License
 Copyright (c) 2020 nanxiaobei and adityatelange
 Copyright (c) 2021 adityatelange and danielfdickinson
 */}}
-{{- $ctx := . -}}
+{{- $cxt := .cxt -}}
 {{- $isThumbnail := .isThumbnail -}}
 {{- $useBookmark := .useBookmark -}}
+{{- $entryPage := .entryPage -}}
 {{- $imageConversion := "" -}}
-{{- with .cxt}}{{/* Apply proper context from dict */}}
-{{- with (.Param "convertImagesTo") -}}
+{{- with $entryPage}}{{/* Apply proper context from dict */}}
+{{- with default false (default $cxt.Page.Site.Params.convertImagesTo $cxt.Page.Params.convertImagesTo) -}}
     {{- $imageConversion = print " " . -}}
 {{- end -}}
 {{- if (and .Params.cover.image (not $.isHidden)) -}}
-{{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
-{{- if eq $isThumbnail true }}
-<span class="entry-cover entry-thumbnail">
-{{- else }}
-<figure class="entry-cover">
-{{- end -}}
-    {{- $responsiveImages := (.Params.cover.responsiveImages | default .Site.Params.cover.responsiveImages) | default true -}}
-    {{- $addLink := (and .Site.Params.cover.linkFullImages (not $.IsHome)) -}}
+    {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
+    {{- if eq $isThumbnail true }}
+    <span class="entry-cover entry-thumbnail">
+    {{- else }}
+    <figure class="entry-cover">
+    {{- end -}}
+    {{- $responsiveImages := ($cxt.Params.cover.responsiveImages | default $cxt.Site.Params.cover.responsiveImages) | default true -}}
+    {{- $addLink := (and $cxt.Site.Params.cover.linkFullImages (not $.IsHome) (not $isThumbnail) ) -}}
     {{- $cover := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) -}}
     {{- if $cover -}}{{- /* i.e it is present in page bundle */ -}}
         {{- $sizes := (slice "90" "180" "360" "480" "720" "1080" "1500") -}}
@@ -36,10 +37,10 @@ Copyright (c) 2021 adityatelange and danielfdickinson
             {{- if $addLink }}<a href="{{ ($cover.Resize (printf "%dx%d%s" $cover.Width $cover.Height $imageConversion)).RelPermalink }}" target="_blank"
                 rel="noopener noreferrer">{{ end -}}
         <img loading="lazy" srcset="{{- range $size := $sizes -}}
-                        {{- if ge $cover.Width $size }}
-                            {{ printf "%s %s" (($cover.Resize (printf "%sx%s" $size $imageConversion)).RelPermalink) (printf "%sw ," $size) -}}
-                        {{- end }}
-                    {{- end -}}{{ ($cover.Resize (printf "%dx%d%s" $cover.Width $cover.Height $imageConversion)).RelPermalink }}"
+                        {{- if ge $cover.Width $size -}}
+                            {{- printf "%s %s" (($cover.Resize (printf "%sx%s" $size $imageConversion)).RelPermalink) (printf "%sw ," $size) -}}
+                        {{- end -}}
+                    {{- end -}}{{- ($cover.Resize (printf "%dx%d%s" $cover.Width $cover.Height $imageConversion)).RelPermalink -}}"
             sizes="{{ if ne $isThumbnail true }}(min-width: 768px) 720px, 100vw{{ else }}((min-width: 2048px) and (max-width: 4096px)) 360px, ((min-width: 1024px) and (max-width: 2048px)) 180px, (min-width: 768px) 90px, 100vw{{ end }}" src="{{ ($cover.Resize (printf "%dx%d%s" $cover.Width $cover.Height $imageConversion)).RelPermalink }}" alt="{{ $alt }}"
             width="{{ $cover.Width }}" height="{{ $cover.Height }}">
         {{- else if and (eq "svg" $cover.MediaType.SubType) (or (eq $prod true)  (eq $isThumbnail true)) }}

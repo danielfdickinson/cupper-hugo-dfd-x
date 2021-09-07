@@ -1,8 +1,9 @@
+{{- $curPage := .Page -}}
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
 {{- if site.Params.search }}
 {{ print "<!-- [html-validate-disable-next input-missing-label] -->" | safeHTML }}
 <input id="search" type="text" placeholder="{{ T "search_placeholder" }}" aria-label="{{ T "search_aria_label" }}" />
 {{- end }}
 <ul class="patterns-list" id="list">
-    {{- partial "post-list-items" (dict "ctx" . "pages" $pages) }}
+    {{- partial "post-list-items" (dict "ctx" $curPage "pages" $pages) }}
 </ul>
