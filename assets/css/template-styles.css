@@ -963,6 +963,15 @@ h1 svg {
     vertical-align: middle;
 }
 
+.entry-cover.bookmark {
+    display: inline-block;
+    margin-bottom: .4rem;
+    margin-right: .4rem;
+    margin-top: .4rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
 .post-entry .entry-cover.entry-thumbnail img,
 .post-entry .entry-cover.entry-thumbnail svg {
     display: inline-block;
@@ -971,12 +980,12 @@ h1 svg {
     width: auto;
 }
 
-.entry-cover.bookmark {
-    display: block;
-    flex: 0 0 .75em;
-    margin-bottom: .2rem;
-    margin-right: .4rem;
-    margin-top: .2rem;
+.entry-cover.bookmark img,
+.entry-cover.bookmark svg {
+    display: inline-block;
+    height: auto;
+    max-height: .75em;
+    width: .75em;
 }
 
 .entry-thumbnail ~ .entry-title {
