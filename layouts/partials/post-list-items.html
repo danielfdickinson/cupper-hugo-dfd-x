@@ -9,8 +9,7 @@
         <div class="entry-header">
             <h2>
                 <a href="{{ .RelPermalink }}">
-                    {{- partial "cover.html" (dict "cxt" $ctx "entryPage" . "isThumbnail" $isThumbnail "useBookmark" true) }} <span class="entry-title">{{ .Title }}{{ if $addTaxonomy }}{{ if .Data.Terms }}: taxonomy{{ else if .Data.Singular }}: {{ .Data.Singular }}{{ end }}{{ end }}            {{ if $addDate }}<span class="entry-date">&nbsp;&mdash;&nbsp;<i><time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Mon Jan 2, 2006" }}</time></i></span>{{ end }}
-</span>
+                    {{- partial "cover.html" (dict "cxt" $ctx "entryPage" . "isThumbnail" $isThumbnail "useBookmark" true) }} <span class="entry-title">{{ .Title }}{{ if $addTaxonomy }}{{ if .Data.Terms }}: taxonomy{{ else if .Data.Singular }}: {{ .Data.Singular }}{{ end }}{{ end }}            {{ if $addDate }}<span class="entry-date">&nbsp;&mdash;&nbsp;<i><time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Mon Jan 2, 2006" }}</time></i></span>{{ end }}</span>
                 </a>
             </h2>
         </div>
