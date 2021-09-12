@@ -1170,3 +1170,29 @@ h1 svg {
   background: rgba(0,0,0,.8);
   color: #fefefe;
 }
+
+.page-not-found {
+    text-align: center;
+}
+
+.page-not-found h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.page-not-found .post-content {
+    background-color: #111;
+    border: 2px solid #333;
+    border-radius: .5rem;
+    display: inline-block;
+    color: #fefefe;
+    font-size: 1.2rem;
+    margin: auto;
+    padding: 1rem;
+    text-align: left;
+}
+
+.not-found-statement:not(:first-child) {
+    line-height: 2rem;
+    margin-top: .2rem;
+}
