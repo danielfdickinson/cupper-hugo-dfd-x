@@ -32,3 +32,15 @@
   translation: "meta description is less than 25 characters long"
 - id: meta_description_greater_than_160
   translation: "meta description is greater than 160 characters long"
+- id: it_seems_we_cannot_find_that_for_which_you_are_looking
+  translation: "It seems we cannot find that for which you are looking…"
+- id: the_index_of_all_pages
+  translation: the Index of all Pages
+- id: you_can_try_to_check
+  translation: "You can try to check"
+- id: or_you_can_try
+  translation: "Or you can try"
+- id: browsing_to_find_it
+  translation: "browsing to find it"
+- id: 404_page_not_found
+  translation: "404 Page not found"

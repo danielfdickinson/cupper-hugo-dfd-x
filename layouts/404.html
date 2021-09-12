@@ -1,0 +1,20 @@
+{{- define "main" }}
+<main id="main" class="page-not-found">
+  <h1 class="post-title">
+    {{ (T "404_page_not_found") }}
+  </h1>
+  <div class="post-content">
+    <div class="not-found-statement">
+    {{ print (T "it_seems_we_cannot_find_that_for_which_you_are_looking") " :disappointed:" | emojify | markdownify }}
+    </div>
+    {{- if fileExists (path.Join "/content" "allpages.md" ) }}
+    <div class="not-found-statement">
+    {{ print (T "you_can_try_to_check") " [" ( T "the_index_of_all_pages" ) "](/allpages)" | markdownify }}
+    </div>
+    {{- end }}
+    <div class="not-found-statement">
+    {{ print (T "or_you_can_try") " [" (T "browsing_to_find_it") "](/)" | markdownify }}
+    </div>
+  </div>
+</main>
+{{- end }}{{/* end main */}}
