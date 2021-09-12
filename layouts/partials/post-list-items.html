@@ -1,13 +1,16 @@
 {{- $ctx := .ctx -}}
 {{- $pages := .pages -}}
 {{- $isThumbnail := default false (default $ctx.Site.Params.thumbnailInList $ctx.Params.thumbnailInList) -}}
+{{- $addTaxonomy:= default false .addTaxonomy -}}
+{{- $addDate := default false .addDate -}}
 {{- range $pages.ByPublishDate.Reverse }}
 <li class="post-list">
     <div class="post-entry">
         <div class="entry-header">
             <h2>
                 <a href="{{ .RelPermalink }}">
-                    {{- partial "cover.html" (dict "cxt" $ctx "entryPage" . "isThumbnail" $isThumbnail "useBookmark" true) }} <span class="entry-title">{{ .Title }}</span>
+                    {{- partial "cover.html" (dict "cxt" $ctx "entryPage" . "isThumbnail" $isThumbnail "useBookmark" true) }} <span class="entry-title">{{ .Title }}{{ if $addTaxonomy }}{{ if .Data.Terms }}: taxonomy{{ else if .Data.Singular }}: {{ .Data.Singular }}{{ end }}{{ end }}            {{ if $addDate }}<span class="entry-date">&nbsp;&mdash;&nbsp;<i><time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Mon Jan 2, 2006" }}</time></i></span>{{ end }}
+</span>
                 </a>
             </h2>
         </div>

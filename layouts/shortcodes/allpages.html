@@ -1,9 +1,4 @@
 <ul>
-{{- range site.Pages.ByTitle }}
-<li>
-    <a href="{{ .RelPermalink }}">
-      {{ .Title }}{{ if .Data.Terms }}: taxonomy{{ else if .Data.Singular }}: {{ .Data.Singular }}{{ end }}
-    </a> — <i><time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Mon Jan 2, 2006" }}</time></i>
-</li>
-{{- end }}
+<ul class="patterns-list" id="list">
+      {{- partial "post-list-items" (dict "ctx" .Page "pages" .Page.Site.Pages.ByTitle "addTaxonomy" true "addDate" true) }}
 </ul>
