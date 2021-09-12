@@ -6,23 +6,21 @@
 [build.environment]
   HUGO_VERSION = "0.88.1"
   TZ = "America/Toronto"
+  HUGO_MODULE_REPLACEMENTS = "github.com/danielfdickinson/cupper-hugo-dfd-x -> ../../../repo"
 #  GIT_LFS_ENABLED = "1"
 #  GIT_LFS_FETCH_INCLUDE = "*.jpg,*.png,*.jpeg,*.svg,*.gif,*.pdf,*.mp4,*.bmp,*.webp,*.ico"
 
 [context.production]
-  command = "hugo ${URL:+-b $URL}"
+  command = "hugo --gc ${URL:+-b $URL} --cleanDestinationDir"
 
 [context.deploy-preview]
-  command = "hugo  ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
+  command = "hugo --gc ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL} --cleanDestinationDir"
 
 [context.branch-deploy]
-  command = "hugo ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL}"
+  command = "hugo --gc ${DEPLOY_PRIME_URL:+-b $DEPLOY_PRIME_URL} --cleanDestinationDir"
 
 [[plugins]]
-  package = "netlify-plugin-checklinks"
-
-    [plugins.inputs]
-      checkExternal = false
+  package = "netlify-plugin-hugo-cache-resources"
 
 [[plugins]]
   package = "netlify-plugin-html-validate"
@@ -32,7 +30,10 @@
       config = ".htmlvalidate.json"
 
 [[plugins]]
-  package = "netlify-plugin-hugo-cache-resources"
+  package = "netlify-plugin-checklinks"
+
+    [plugins.inputs]
+      checkExternal = false
 
 [[plugins]]
   package = "netlify-plugin-minify-html"
@@ -40,7 +41,7 @@
     [plugins.inputs]
     contexts = [
       'production',
-      'branch-deploy'
+      'deploy-preview'
     ]
 
     [plugins.inputs.minifierOptions]
@@ -53,7 +54,7 @@
     removeOptionalTags = true
     removeRedundantAttributes = true
     removeScriptTypeAttributes = true
-    removeTypeLinkTypeAtttributes = true
+    removeTypeLinkTypeAttributes = true
     useShortDocType = true
 
 [dev]
