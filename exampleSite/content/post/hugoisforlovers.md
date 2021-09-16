@@ -3,6 +3,7 @@ date: "2014-04-02"
 tags: ["hugo", "git", "fun"]
 title: "Getting Started with Hugo"
 summary: "Follow the step listed here to create your first Hugo-based website."
+toc: true
 ---
 
 ## Step 1. Install Hugo

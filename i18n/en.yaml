@@ -13,7 +13,7 @@
 - id: dark_theme
   translation: "dark theme:"
 - id: table_of_contents
-  translation: Table of contents
+  translation: Table of Contents
 - id: publish_date
   translation: "Publish date:"
 - id: last_updated

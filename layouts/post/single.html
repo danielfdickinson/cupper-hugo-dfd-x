@@ -20,7 +20,7 @@
     </div>
 
     {{- with .Params.tags }}
-      <section class="tags">
+      <div class="tags">
         <strong>{{ T "tags" }} </strong>
         <ul>
           {{- range . }}
@@ -33,14 +33,11 @@
             </li>
           {{- end }}
         </ul>
-      </section>
+      </div>
     {{- end }}
 
     {{- partial "cover.html" (dict "cxt" . "entryPage" . "isThumbnail" false  "useBookmark" false) }}
-
-    {{- if ne .Params.toc false }}
-      {{- partial "toc" . }}
-    {{- end }}
+    {{- partial "toc.html" . }}
 
     {{ .Content }}
   </main>
