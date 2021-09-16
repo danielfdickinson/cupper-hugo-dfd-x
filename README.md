@@ -21,7 +21,7 @@ For production use we recommend the upstream [zwbetz-gh/cupper-hugo-theme](https
 - [Favicons](#favicons)
 - [Shortcodes](#shortcodes)
 - [Syntax highlighting](#syntax-highlighting)
-- [Disable toc for a blog post](#disable-toc-for-a-blog-post)
+- [Enable Table of Contents for a Blog Post](#enable-table-of-contents-for-a-blog-post)
 - [Localization](#localization)
 - [Custom CSS and JS](#custom-css-and-js)
 - [Default to Dark Theme](#default-to-dark-theme)
@@ -87,14 +87,14 @@ By default, only a few languages are supported. If you want to add more, follow 
 1. Download the JS file, then copy it to `static/js/prism.js`
 1. Download the CSS file, then copy it to `static/css/prism.css`
 
-## Disable toc for a blog post
+## Enable Table of Contents for a Blog Post
 
-Blog posts that have two or more subheadings (`<h2>`s) automatically get a table of contents. To disable this set `toc` to `false`. For example:
+Set `toc` to `true`. For example:
 
 ```
 ---
 title: "My page with a few headings"
-toc: false
+toc: true
 ---
 ```
 

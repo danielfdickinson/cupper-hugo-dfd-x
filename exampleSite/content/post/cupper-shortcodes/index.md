@@ -3,6 +3,7 @@ title: "Cupper Shortcodes"
 date: 2019-02-12T23:39:06-06:00
 tags: [hugo, shortcodes]
 summary: "Hugo shortcodes included in Cupper-hugo-dfd-x theme"
+toc: true
 ---
 
 ## blockquote

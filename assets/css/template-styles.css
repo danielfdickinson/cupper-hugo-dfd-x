@@ -448,8 +448,8 @@ caption {
     border: 1px solid;
     padding: 1.5rem;
 }
-.toc h2 {
-    font-size: 1rem;
+.toc nav {
+  margin-top: 1rem;
 }
 .toc ol {
     margin-left: 0.75rem;
