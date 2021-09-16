@@ -1093,6 +1093,13 @@ h1 svg {
     code {
       word-break: break-all;
     }
+    .post-entry .entry-cover.entry-thumbnail {
+        width: 100%;
+    }
+    .entry-thumbnail ~ .entry-title {
+        text-align: center;
+        width: 100%;
+    }
 }
 @media print {
     .wrapper:not(.print-version) .intro-and-nav,
