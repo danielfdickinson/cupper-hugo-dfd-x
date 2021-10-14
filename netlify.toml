@@ -27,8 +27,9 @@
 [[plugins]]
   package = "netlify-plugin-checklinks"
 
-    [plugins.inputs]
-      checkExternal = false
+  [plugins.inputs]
+    checkExternal = false
+    skipPatterns = [ "<link rel=\"alternate\" type=\"application/rss+xml\"", "<meta http-equiv=\"refresh\" content=\"0; url=", "<meta property=\"og:", "<meta property=\"twitter:" ]
 
 [[plugins]]
   package = "netlify-plugin-minify-html"
