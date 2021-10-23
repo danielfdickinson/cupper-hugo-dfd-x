@@ -19,6 +19,7 @@
         "script-type": "off",
         "attr-quotes": "off",
         "prefer-tbody": "off",
+        "no-trailing-whitespace": "off",
         "no-raw-characters": [
                 "error",
                 {
@@ -27,7 +28,6 @@
         ],
         "require-sri": "off",
         "no-deprecated-attr": "warn",
-        "no-trailing-whitespace": "error",
         "no-redundant-role": "error",
         "aria-label-misuse": "error",
         "element-required-attributes": "error",
