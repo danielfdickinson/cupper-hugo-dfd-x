@@ -22,24 +22,24 @@ Even a happy life cannot be without a measure of darkness, and the word happy wo
 
 ```
 {{</* note */>}}
-This is a note! It's something the reader may like to know about but is supplementary to the main content. Use notes when something may be interesting but not critical.
+This is a note! It's something the reader may like to know about but is supplementary to the main content. Use notes when something may be interesting but not critical. You can also *include* **markdown** stuffs like `code`. 
 {{</* /note */>}}
 ```
 
 {{< note >}}
-This is a note! It's something the reader may like to know about but is supplementary to the main content. Use notes when something may be interesting but not critical.
+This is a note! It's something the reader may like to know about but is supplementary to the main content. Use notes when something may be interesting but not critical. You can also *include* **markdown** stuffs like `code`.
 {{< /note >}}
 
 ## warning note
 
 ```
 {{</* warning */>}}
-This is a warning! It's about something the reader should be careful to do or to avoid doing. Use warnings when something could go wrong.
+This is a warning! It's about something the reader should be careful to do or to avoid doing. Use warnings when something could go wrong. You can also *include* **markdown** stuffs like `code`.
 {{</* /warning */>}}
 ```
 
 {{< warning >}}
-This is a warning! It's about something the reader should be careful to do or to avoid doing. Use warnings when something could go wrong.
+This is a warning! It's about something the reader should be careful to do or to avoid doing. Use warnings when something could go wrong. You can also *include* **markdown** stuffs like `code`.
 {{< /warning >}}
 
 ## cmd
