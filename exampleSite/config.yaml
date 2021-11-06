@@ -3,8 +3,8 @@ language: en
 defaultContentLanguage: en
 languageCode: en-ca
 title: Cupper-hugo-dfd-x
-googleAnalytics: ""
-disqusShortname: yourdiscussshortname
+googleAnalytics:
+disqusShortname:
 enableGitInfo: true
 description: An experimental Hugo theme, forked from the accessibility-friendly [Cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme).
 
